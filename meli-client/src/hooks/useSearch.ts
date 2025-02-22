@@ -26,34 +26,29 @@ export function useSearch() {
   const totalPages = totalPagesOfItems < 10 ? 10 : totalPagesOfItems;
 
   const items = serverItems.slice((currentPage - 1) * 10, currentPage * 10);
-  console.log({
-    totalPages,
-    totalPagesOfItems,
-    items,
-    serverItems,
-    searchQuery,
-  });
 
   async function updateServerItems(page = 1) {
     const offset = page == 1 ? 0 : page * 10;
     const searchResponse = await SearchService.search(searchQuery, offset);
     const currentServerItems = serverItems;
-    console.log("update", { page, offset });
 
     const uniqueItems = deDuplicateServerItems([
       ...currentServerItems,
       ...searchResponse.items,
     ]);
-    setServerItems([...currentServerItems, ...searchResponse.items]);
+    setServerItems(uniqueItems);
   }
 
   function goToPage(pageNumber: number) {
-    console.log("goToPage", {
-      pageNumber,
+    console.log({
+      totalPages,
       totalPagesOfItems,
+      pageNumber,
+      currentPage,
+      serverItems,
     });
-
     if (pageNumber >= totalPagesOfItems) {
+      console.log("update", { pageNumber, totalPagesOfItems });
       updateServerItems(pageNumber);
     }
     setCurrentPage(pageNumber);

@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-right: 24px;
+  margin-right: $spacing-24;
 
   @media (max-width: 768px) {
     flex-direction: row;
@@ -27,7 +27,7 @@
   overflow: hidden;
   width: 56px;
   height: 56px;
-  padding: 2px;
+  padding: $spacing-2;
   border-radius: 4px;
 
   &--selected {
@@ -80,7 +80,7 @@
   position: absolute;
   top: 10%;
   right: 5%;
-  padding: 4px;
+  padding: $spacing-4;
   height: 30px;
   width: 30px;
   background-color: rgba(0, 0, 0, 0.25);
@@ -95,7 +95,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  //   background-color: #fff;
   margin: auto auto;
 }
 
@@ -110,12 +109,10 @@
 }
 
 .media-gallery__modal-image {
-  margin: 0px 25px;
+  margin: 0 $spacing-25;
 
   @media (max-width: 768px) {
     width: 70%;
-    // max-width: 230px;
-    // min-width: 400px;
   }
 
   & > img {

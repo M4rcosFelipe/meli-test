@@ -3,15 +3,15 @@
 .search-result {
   background-color: $white;
   position: relative;
-  padding: $size-12;
+  padding: $spacing-12;
   display: block;
 
   &:not(:last-child) {
-    margin-bottom: 2px;
+    margin-bottom: $spacing-2;
   }
 
   &__content {
-    margin-bottom: 20px;
+    margin-bottom: $spacing-20;
     display: flex;
     align-items: flex-start;
   }
@@ -20,13 +20,12 @@
     width: 250px;
     height: 259px;
     aspect-ratio: 1/1;
-    margin-right: 24px;
-    //   background-color: red;
+    margin-right: $spacing-24;
 
     @media (max-width: 768px) {
       width: 160px;
       height: 190px;
-      margin-right: $size-8;
+      margin-right: $spacing-8;
     }
 
     & > img {
@@ -37,15 +36,15 @@
   }
 
   &__info {
-    margin-top: 30px;
+    margin-top: $spacing-30;
     @media (max-width: 768px) {
-      margin-top: 12px;
+      margin-top: $spacing-12;
     }
   }
 
   &__title {
-    margin-bottom: $size-6;
-    font-size: $font-size-lg;
+    margin-bottom: $spacing-6;
+    font-size: $font-size-xl;
     font-weight: $font-weight-light;
     line-clamp: 3;
     @media (max-width: 768px) {
@@ -56,7 +55,7 @@
 
   &__seller-name {
     font-size: $font-size-xs;
-    color: $font-gray-light;
+    color: $gray-light;
     font-weight: $font-weight-normal;
     @media (max-width: 768px) {
       font-size: $font-size-xxs;
@@ -64,26 +63,26 @@
   }
 
   &__price {
-    margin-top: 25px;
+    margin-top: $spacing-25;
     @media (max-width: 768px) {
-      margin-top: 12px;
+      margin-top: $spacing-12;
     }
   }
 
   &__original-price {
     font-size: $font-size-xxs;
     font-weight: $font-weight-normal;
-    color: $font-gray-light;
+    color: $gray-light;
   }
 
   &__current-price {
-    font-size: $font-size-2xl;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-normal;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     @media (max-width: 768px) {
-      font-size: $font-size-lg;
+      font-size: $font-size-xl;
     }
   }
 
@@ -91,22 +90,22 @@
     color: $ml-green;
     font-size: $font-size-xs;
     font-weight: $font-weight-normal;
-    margin-left: $size-14;
+    margin-left: $spacing-14;
     white-space: nowrap;
     @media (max-width: 768px) {
       font-size: $font-size-xxs;
-      margin-left: $size-6;
+      margin-left: $spacing-6;
     }
   }
 
   &__free-shipping {
-    margin-top: 25px;
+    margin-top: $spacing-25;
     font-size: $font-size-xs;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $font-weight-semibold;
     color: $ml-green;
 
     @media (max-width: 768px) {
-      margin-top: 12px;
+      margin-top: $spacing-12;
     }
   }
 
@@ -119,9 +118,9 @@
   }
 
   &__condition {
-    margin-top: 25px;
+    margin-top: $spacing-25;
     font-size: $font-size-xs;
     font-weight: $font-weight-normal;
-    color: $font-gray-light;
+    color: $gray-light;
   }
 }

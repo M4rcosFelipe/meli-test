@@ -1,11 +1,8 @@
-import Pagination from "../pagination/pagination";
 import "./search-footer.scss";
 
-interface Props {}
-export default function SearchFooter({}: Props) {
-  return (
-    <div className="search-footer">
-      <Pagination />
-    </div>
-  );
+interface Props {
+  children: React.ReactNode;
+}
+export default function SearchFooter({ children }: Props) {
+  return <div className="search-footer">{children}</div>;
 }

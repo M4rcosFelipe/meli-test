@@ -11,15 +11,15 @@
   &__input {
     width: 100%;
     height: 100%;
-    padding: $size-8;
-    padding-left: 16px;
+    padding: $spacing-8;
+    padding-left: $spacing-16;
     font-size: $font-size-md;
     font-weight: $font-weight-normal;
     font-family: $font-family;
-    color: $font-gray-normal;
+    color: $gray-normal;
 
     &::placeholder {
-      color: $font-gray-light;
+      color: $gray-light;
     }
   }
 

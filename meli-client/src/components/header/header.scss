@@ -2,8 +2,8 @@
 
 .header {
   background-color: $ml-yellow;
-  padding: $size-8;
-  margin-bottom: 30px;
+  padding: $spacing-8;
+  margin-bottom: $spacing-30;
   position: relative;
 
   &__content {

@@ -64,7 +64,7 @@ function mapSalePriceToPrice(salePrice: SalePrice) {
 }
 
 function getPictureUrlByThumbnailId(thumbnailId: string) {
-  return `http://http2.mlstatic.com/D_${thumbnailId}-T.jpg`;
+  return `http://http2.mlstatic.com/D_${thumbnailId}-V.jpg`;
 }
 
 function getInstallmentsText(installments: Installments) {

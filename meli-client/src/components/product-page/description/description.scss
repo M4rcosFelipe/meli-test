@@ -2,23 +2,23 @@
 
 .description {
   &__title {
-    font-size: 22px;
+    font-size: $font-size-2xl;
     font-weight: $font-weight-normal;
-    color: $font-gray-normal;
+    color: $gray-normal;
     margin-bottom: 16px;
 
     @media (max-width: 768px) {
-      font-size: 20px;
+      font-size: $font-size-xl;
     }
   }
 
   &__content {
-    font-size: 18px;
+    font-size: $font-size-lg;
     font-weight: $font-weight-normal;
-    color: $font-gray-light;
+    color: $gray-light;
     white-space: pre-wrap;
     @media (max-width: 768px) {
-      font-size: 16px;
+      font-size: $font-size-md;
     }
   }
 }

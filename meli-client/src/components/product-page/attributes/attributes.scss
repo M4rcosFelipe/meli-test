@@ -1,16 +1,16 @@
 @import "@/styles/variables";
 
 .attributes {
-  margin-top: 28px;
+  margin-top: $spacing-28;
 }
 
 .attributes__item {
-  font-size: 18px;
+  font-size: $font-size-lg;
   font-weight: $font-weight-light;
-  color: $font-gray-dark;
+  color: $gray-dark;
 
   &:not(:last-child) {
-    margin-bottom: $size-8;
+    margin-bottom: $spacing-8;
   }
 }
 

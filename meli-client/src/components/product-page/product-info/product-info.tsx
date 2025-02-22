@@ -1,4 +1,4 @@
-import { Item, Product } from "@/types/product/ProductResponse";
+import { Item } from "@/types/product/ProductResponse";
 import "./product-info.scss";
 import Money from "@/components/money/money";
 import { calculateDiscountPercentage } from "@/utils/price";
@@ -10,11 +10,8 @@ interface Props {
 }
 export default function productInfo({ item }: Props) {
   const hasDiscount = item.price.regular_amount != null;
-  //   item.seller = "OCEAN GREEN ARGENTINA";
-  //   item.installments = "Mismo precio etc";
-  //   item.sold_quantity = 100;
   const hasSoldQuantity = item.sold_quantity != null;
-  console.log(item.condition);
+
   return (
     <div className="product-info">
       <div className="product-info__condition-wrapper">

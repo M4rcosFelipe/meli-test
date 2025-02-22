@@ -5,10 +5,8 @@ interface SearchState {
   currentPage: number;
   totalPages: number;
   serverItems: SearchResult[];
-  items: any[];
-  query: string;
+  items: SearchResult[];
   setCurrentPage: (pageNumber: number) => void;
-  setSearchQuery: (query: string) => void;
   setServerItems: (serverItems: any[]) => void;
 }
 
@@ -17,8 +15,6 @@ export const useSearchStore = create<SearchState>()((set) => ({
   totalPages: 1,
   serverItems: [],
   items: [],
-  query: "",
   setCurrentPage: (pageNumber) => set({ currentPage: pageNumber }),
-  setSearchQuery: (query) => set({ query: query }),
   setServerItems: (serverItems) => set({ serverItems: serverItems }),
 }));

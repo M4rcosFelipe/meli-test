@@ -1,7 +1,6 @@
 import "./logo.scss";
 
-interface Props {}
-export default function Logo({}: Props) {
+export default function Logo() {
   return (
     <>
       <img

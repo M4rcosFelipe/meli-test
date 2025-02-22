@@ -1,7 +1,6 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "./media-gallery.scss";
-import React from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -75,11 +74,9 @@ export default function MediaGallery({ medias, productTitle }: Props) {
           </li>
         ))}
         {biggerThanMax && (
-          <li
-            className="media-gallery__item"
-            onClick={() => setIsModalOpen(true)}
-          >
+          <li className="media-gallery__item">
             <button
+              onClick={() => setIsModalOpen(true)}
               className="media-gallery__thumb"
               aria-label={`Ver mas ${excedingAmount} imagenes de ${productTitle}`}
             >
@@ -92,9 +89,9 @@ export default function MediaGallery({ medias, productTitle }: Props) {
         <img src={currentMediaUrl} alt={productTitle} />
       </div>
       {isModalOpen && (
-        <div
+        <dialog
           className="media-gallery__modal"
-          role="dialog"
+          //   role="dialog"
           aria-hidden={!isModalOpen}
         >
           <div className="media-gallery__modal-content">
@@ -114,7 +111,7 @@ export default function MediaGallery({ medias, productTitle }: Props) {
               </button>
             )}
             <div className="media-gallery__modal-image">
-              <img src={currentMediaUrl}></img>
+              <img alt={productTitle} src={currentMediaUrl} />
             </div>
             {!isOnLastMedia && (
               <button
@@ -125,7 +122,7 @@ export default function MediaGallery({ medias, productTitle }: Props) {
               </button>
             )}
           </div>
-        </div>
+        </dialog>
       )}
     </div>
   );

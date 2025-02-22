@@ -5,7 +5,6 @@ import "./first-time-message.scss";
 import { useEffect, useState } from "react";
 
 export default function FirstTimeMessage() {
-  console.log("rendered");
   const [isOpen, setIsOpen] = useState(false);
 
   function closeMessage() {

@@ -7,7 +7,7 @@ export async function generateMetadata(props: {
   }>;
 }): Promise<Metadata> {
   const searchParams = await props.searchParams;
-  const search = searchParams?.search || "";
+  const search = searchParams?.search ?? "";
 
   return {
     title: search,

@@ -10,8 +10,7 @@ interface Props {
 export default function SearchResultItem({ item }: Props) {
   return (
     <li className="search-result">
-      <Link href={`/items/${item.id}`}>
-        {/* <p>{item.id}</p> */}
+      <Link href={`/items/${item.id}`} aria-label={item.title}>
         <div className="search-result__content">
           <div className="search-result__image">
             <img src={item.picture} alt="" />

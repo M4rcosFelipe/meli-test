@@ -1,10 +1,15 @@
 "use client";
 
 import "./pagination.scss";
-import { useSearch } from "@/hooks/useSearch";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-interface Props {}
+interface Props {
+  currentPage: number;
+  goToPage: (pageNumber: number) => void;
+  goToNextPage: () => void;
+  goToPreviousPage: () => void;
+  totalPages: number;
+}
 
 function getNewPagesSet<T>(amount: number, item: T, array: T[]) {
   const indexOfCurrentPage = array.indexOf(item);
@@ -23,9 +28,13 @@ function getNewPagesSet<T>(amount: number, item: T, array: T[]) {
   return [...beforeItems, ...afterItems];
 }
 
-export default function Pagination({}: Props) {
-  let { currentPage, goToPage, goToNextPage, goToPreviousPage, totalPages } =
-    useSearch();
+export default function Pagination({
+  currentPage,
+  goToPage,
+  goToNextPage,
+  goToPreviousPage,
+  totalPages,
+}: Props) {
   const matchesMediaQuery = useMediaQuery("(max-width: 768px)");
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
@@ -58,8 +67,7 @@ export default function Pagination({}: Props) {
               className={`pagination__link ${
                 currentPage == pageNumber ? "pagination__link--current" : ""
               }`}
-              onClick={(e) => {
-                e.preventDefault;
+              onClick={() => {
                 goToPage(pageNumber);
               }}
             >

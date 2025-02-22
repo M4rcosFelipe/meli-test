@@ -1,7 +1,5 @@
 import { SearchResult } from "@/types/search/SearchResult";
 import "./search-results.scss";
-import Money from "@/components/money/money";
-import Link from "next/link";
 import SearchResultItem from "./search-result-item/search-result-item";
 
 interface Props {

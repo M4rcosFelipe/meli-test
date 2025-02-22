@@ -1,26 +1,26 @@
 @import "@/styles/variables";
 
 .product-info {
-  margin-left: 48px;
+  margin-left: $spacing-48;
 
   @media (max-width: 1200px) {
-    margin-left: 0px;
-    margin-bottom: 10px;
+    margin-left: 0;
+    margin-bottom: $spacing-10;
   }
 
   &__condition-wrapper {
-    margin-top: 28px;
+    margin-top: $spacing-28;
     display: flex;
     font-size: $font-size-sm;
     font-weight: $font-weight-light;
-    color: $font-gray-light;
+    color: $gray-light;
     align-items: center;
   }
 
   &__condition {
     position: relative;
-    padding-right: 5px;
-    margin-right: 5px;
+    padding-right: $spacing-5;
+    margin-right: $spacing-5;
 
     &--right-detailed {
       &:after {
@@ -28,7 +28,7 @@
         display: block;
         height: 12px;
         width: 1px;
-        background-color: #0000008c;
+        background-color: $gray-light;
         position: absolute;
         right: 0;
         top: 3px;
@@ -38,10 +38,10 @@
   }
 
   &__title {
-    margin-top: 28px;
-    font-size: 22px;
-    font-weight: $font-weight-semi-bold;
-    color: $font-gray-dark;
+    margin-top: $spacing-28;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $gray-dark;
 
     &--desktop {
       display: block;
@@ -52,9 +52,9 @@
 
     &--mobile {
       display: none;
-      margin-top: 0px;
-      margin-bottom: 8px;
-      font-size: 16px;
+      margin-top: 0;
+      margin-bottom: $spacing-8;
+      font-size: $font-size-md;
       font-weight: $font-weight-normal;
       @media (max-width: 600px) {
         display: block;
@@ -63,61 +63,57 @@
   }
 
   &__seller-name {
-    margin-top: 8px;
-    font-size: 18px;
+    margin-top: $spacing-8;
+    font-size: $font-size-lg;
     font-weight: $font-weight-normal;
-    color: $font-gray-light;
+    color: $gray-light;
     @media (max-width: 600px) {
-      font-size: 16px;
+      font-size: $font-size-md;
     }
   }
 
   &__price {
-    margin: 28px 0px;
+    margin: $spacing-28;
   }
 
   &__original-price {
-    font-size: 16px;
+    font-size: $font-size-md;
     font-weight: $font-weight-normal;
-    color: $font-gray-light;
+    color: $gray-light;
   }
 
   &__current-price {
-    font-size: $font-size-3xl;
+    font-size: $font-size-4xl;
     font-weight: $font-weight-normal;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    // @media (max-width: 768px) {
-    //   font-size: $font-size-lg;
-    // }
   }
 
   &__discount {
     color: $ml-green;
     font-size: $font-size-md;
     font-weight: $font-weight-normal;
-    margin-left: $size-14;
+    margin-left: $spacing-14;
     white-space: nowrap;
     @media (max-width: 768px) {
       font-size: $font-size-xxs;
-      margin-left: $size-6;
+      margin-left: $spacing-6;
     }
   }
 
   &__installments {
-    font-size: 18px;
+    font-size: $font-size-lg;
     font-weight: $font-weight-light;
   }
 
   &__free-shipping {
-    // margin-top: 25px;
-    font-size: 18px;
-    font-weight: $font-weight-semi-bold;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
     color: $ml-green;
 
     @media (max-width: 768px) {
-      margin-top: 12px;
+      margin-top: $spacing-12;
     }
   }
 }

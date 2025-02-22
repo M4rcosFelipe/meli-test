@@ -1,7 +1,7 @@
 "use client";
 import "./search-box.scss";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function SearchBox() {
   const searchParams = useSearchParams();
