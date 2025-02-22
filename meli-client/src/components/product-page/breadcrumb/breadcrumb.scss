@@ -1,0 +1,41 @@
+@import "@/styles/variables";
+
+.breadcrumb {
+  display: flex;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.breadcrumb__item {
+  color: $font-gray-light;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: $font-weight-light;
+  color: $font-gray-light;
+
+  &--back-link {
+    color: $ml-blue;
+    padding-right: 10px;
+    font-weight: $font-weight-normal;
+    margin-right: 10px;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 12px;
+      width: 2px;
+      background-color: $font-gray-light;
+      position: absolute;
+      right: 0;
+      opacity: 0.4;
+    }
+  }
+}
+
+.breadcrumb__separator {
+  margin: 0px 5px;
+}

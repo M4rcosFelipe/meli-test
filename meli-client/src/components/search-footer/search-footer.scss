@@ -1,0 +1,11 @@
+@import "@/styles/variables";
+
+.search-footer {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $ml-gray-light;
+  padding: $size-12;
+  padding-bottom: $size-24;
+}

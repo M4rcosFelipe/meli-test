@@ -1,0 +1,7 @@
+@import "@/styles/variables";
+
+.installments {
+  &--zero-rate {
+    color: $ml-green;
+  }
+}

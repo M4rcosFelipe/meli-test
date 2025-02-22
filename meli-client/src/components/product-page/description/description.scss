@@ -1,0 +1,24 @@
+@import "@/styles/variables";
+
+.description {
+  &__title {
+    font-size: 22px;
+    font-weight: $font-weight-normal;
+    color: $font-gray-normal;
+    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  &__content {
+    font-size: 18px;
+    font-weight: $font-weight-normal;
+    color: $font-gray-light;
+    white-space: pre-wrap;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+}

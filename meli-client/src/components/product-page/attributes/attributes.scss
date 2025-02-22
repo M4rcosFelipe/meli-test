@@ -1,0 +1,19 @@
+@import "@/styles/variables";
+
+.attributes {
+  margin-top: 28px;
+}
+
+.attributes__item {
+  font-size: 18px;
+  font-weight: $font-weight-light;
+  color: $font-gray-dark;
+
+  &:not(:last-child) {
+    margin-bottom: $size-8;
+  }
+}
+
+.attributes__value {
+  font-weight: $font-weight-normal;
+}

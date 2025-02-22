@@ -1,0 +1,21 @@
+@import "@/styles/variables";
+
+.logo {
+  &--desktop {
+    margin-right: $size-34;
+    width: 148px;
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  &--mobile {
+    margin-right: $size-8;
+    width: 44px;
+    display: block;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}

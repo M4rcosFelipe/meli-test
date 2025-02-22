@@ -1,0 +1,20 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/meli-server/node_modules
+/meli-client/node_modules
+
+# next.js
+/meli-client/.next/
+/out/
+
+# production
+/build
+
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# typescript
+*.tsbuildinfo
+/meli-client/next-env.d.ts

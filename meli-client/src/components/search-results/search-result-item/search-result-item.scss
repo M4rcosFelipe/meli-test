@@ -1,0 +1,127 @@
+@import "@/styles/variables";
+
+.search-result {
+  background-color: $white;
+  position: relative;
+  padding: $size-12;
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 2px;
+  }
+
+  &__content {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__image {
+    width: 250px;
+    height: 259px;
+    aspect-ratio: 1/1;
+    margin-right: 24px;
+    //   background-color: red;
+
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 190px;
+      margin-right: $size-8;
+    }
+
+    & > img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__info {
+    margin-top: 30px;
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  &__title {
+    margin-bottom: $size-6;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-light;
+    line-clamp: 3;
+    @media (max-width: 768px) {
+      font-size: $font-size-xs;
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  &__seller-name {
+    font-size: $font-size-xs;
+    color: $font-gray-light;
+    font-weight: $font-weight-normal;
+    @media (max-width: 768px) {
+      font-size: $font-size-xxs;
+    }
+  }
+
+  &__price {
+    margin-top: 25px;
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  &__original-price {
+    font-size: $font-size-xxs;
+    font-weight: $font-weight-normal;
+    color: $font-gray-light;
+  }
+
+  &__current-price {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-normal;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @media (max-width: 768px) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__discount {
+    color: $ml-green;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    margin-left: $size-14;
+    white-space: nowrap;
+    @media (max-width: 768px) {
+      font-size: $font-size-xxs;
+      margin-left: $size-6;
+    }
+  }
+
+  &__free-shipping {
+    margin-top: 25px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semi-bold;
+    color: $ml-green;
+
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  &__installments {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    @media (max-width: 768px) {
+      font-size: $font-size-xxs;
+    }
+  }
+
+  &__condition {
+    margin-top: 25px;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    color: $font-gray-light;
+  }
+}

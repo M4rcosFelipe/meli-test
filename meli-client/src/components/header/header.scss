@@ -1,0 +1,21 @@
+@import "@/styles/variables.scss";
+
+.header {
+  background-color: $ml-yellow;
+  padding: $size-8;
+  margin-bottom: 30px;
+  position: relative;
+
+  &__content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__first-message {
+    position: absolute;
+    right: 24px;
+    bottom: -100%;
+  }
+}

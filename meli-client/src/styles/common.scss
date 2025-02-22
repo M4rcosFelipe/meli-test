@@ -1,0 +1,70 @@
+@import "@/styles/variables.scss";
+
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (
+  "": "all",
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+);
+
+@each $space in $spaceamounts {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == "", "", -#{$value});
+    .m#{$prefix}#{$space} {
+      margin#{$property}: #{$space * 2}px;
+    }
+    .p#{$prefix}#{$space} {
+      padding#{$property}: #{$space * 2}px;
+    }
+  }
+}
+
+.font-xxs {
+  font-size: $font-size-xxs;
+}
+
+.font-xs {
+  font-size: $font-size-xs;
+}
+
+.font-sm {
+  font-size: $font-size-sm;
+}
+
+.font-md {
+  font-size: $font-size-md;
+}
+
+.font-lg {
+  font-size: $font-size-lg;
+}
+
+.font-xl {
+  font-size: $font-size-xl;
+}
+
+.font-2xl {
+  font-size: $font-size-2xl;
+}
+
+.font-color-gray-light {
+  color: $font-gray-light;
+}
+
+.main-container {
+  max-width: $main-container-width;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
