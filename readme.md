@@ -27,7 +27,7 @@ cd meli-test
 Dentro de `meli-test/meli-server`:
 
 ```bash
-cp .env.sample .env
+cp .env.example .env
 npm install
 npm run dev
 
@@ -40,7 +40,7 @@ O servidor inicializará na url http://localhost:3001
 Dentro de `meli-test/meli-client`:
 
 ```bash
-cp .env.sample .env
+cp .env.example .env
 npm install
 npm run dev
 
