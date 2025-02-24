@@ -19,3 +19,5 @@
 # typescript
 *.tsbuildinfo
 /meli-client/next-env.d.ts
+
+*.txt
