@@ -55,7 +55,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={proximaNova.className}>
       <body>
         <Header />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-@import "@/styles/variables";
+@use "@/styles/_variables" as *;
 
 .search-result {
   background-color: $white;
@@ -46,7 +46,6 @@
     margin-bottom: $spacing-6;
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
-    line-clamp: 3;
     @media (max-width: 768px) {
       font-size: $font-size-xs;
       font-weight: $font-weight-normal;

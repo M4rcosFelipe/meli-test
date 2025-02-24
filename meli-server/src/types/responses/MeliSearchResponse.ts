@@ -162,30 +162,20 @@ export interface Metadata2 {
 }
 
 export interface VariationsData {
-  "55627871608"?: N55627871608;
-  "55627871612"?: N55627871612;
-  "185660386177"?: N185660386177;
-  "66199198783"?: N66199198783;
-  "66199198798"?: N66199198798;
-  "181170280507"?: N181170280507;
-  "179513436418"?: N179513436418;
-  "177056529771"?: N177056529771;
-  "177056529769"?: N177056529769;
+  [string: string]: {
+    thumbnail: string;
+    ratio: string;
+    name: string;
+    pictures_qty: number;
+    price: number;
+    inventory_id: string;
+    user_product_id: string;
+    attributes: VariationsDataAttribute[];
+    attribute_combinations: AttributeCombination[];
+  };
 }
 
-export interface N55627871608 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute2[];
-  attribute_combinations: AttributeCombination[];
-}
-
-export interface Attribute2 {
+export interface VariationsDataAttribute {
   id: string;
   name: string;
   value_name: string;
@@ -193,230 +183,6 @@ export interface Attribute2 {
 }
 
 export interface AttributeCombination {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N55627871612 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute3[];
-  attribute_combinations: AttributeCombination2[];
-}
-
-export interface Attribute3 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: string;
-}
-
-export interface AttributeCombination2 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N185660386177 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute4[];
-  attribute_combinations: AttributeCombination3[];
-}
-
-export interface Attribute4 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: any;
-}
-
-export interface AttributeCombination3 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N66199198783 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute5[];
-  attribute_combinations: AttributeCombination4[];
-}
-
-export interface Attribute5 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: string;
-}
-
-export interface AttributeCombination4 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N66199198798 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute6[];
-  attribute_combinations: AttributeCombination5[];
-}
-
-export interface Attribute6 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: string;
-}
-
-export interface AttributeCombination5 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N181170280507 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute7[];
-  attribute_combinations: AttributeCombination6[];
-}
-
-export interface Attribute7 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: string;
-}
-
-export interface AttributeCombination6 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N179513436418 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute8[];
-  attribute_combinations: AttributeCombination7[];
-}
-
-export interface Attribute8 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: string;
-}
-
-export interface AttributeCombination7 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N177056529771 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute9[];
-  attribute_combinations: AttributeCombination8[];
-}
-
-export interface Attribute9 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: any;
-}
-
-export interface AttributeCombination8 {
-  id: string;
-  name: string;
-  value_id: any;
-  value_name: string;
-  value_struct: any;
-  values: any;
-}
-
-export interface N177056529769 {
-  thumbnail: string;
-  ratio: string;
-  name: string;
-  pictures_qty: number;
-  price: number;
-  inventory_id: string;
-  user_product_id: string;
-  attributes: Attribute10[];
-  attribute_combinations: AttributeCombination9[];
-}
-
-export interface Attribute10 {
-  id: string;
-  name: string;
-  value_name: string;
-  value_type: any;
-}
-
-export interface AttributeCombination9 {
   id: string;
   name: string;
   value_id: any;
@@ -439,10 +205,10 @@ export interface Filter {
   id: string;
   name: string;
   type: string;
-  values: Value2[];
+  values: FilterValue[];
 }
 
-export interface Value2 {
+export interface FilterValue {
   id: string;
   name: string;
   path_from_root: PathFromRoot[];
@@ -457,10 +223,10 @@ export interface AvailableFilter {
   id: string;
   name: string;
   type: string;
-  values: Value3[];
+  values: AvailableFilterValue[];
 }
 
-export interface Value3 {
+export interface AvailableFilterValue {
   id: string;
   name: string;
   results: number;

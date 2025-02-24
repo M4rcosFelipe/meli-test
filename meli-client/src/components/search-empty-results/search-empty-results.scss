@@ -1,0 +1,26 @@
+@use "@/styles/_variables" as *;
+
+.search-empty-results {
+  max-width: $main-container-width;
+  margin: 0 auto;
+  background-color: $white;
+  padding: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-16;
+  }
+
+  &__solutions {
+    list-style: disc;
+  }
+
+  &__solution-item {
+    margin-left: $spacing-18;
+  }
+}

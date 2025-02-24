@@ -1,22 +1,22 @@
 "use client";
 
-import { X } from "lucide-react";
 import "./first-time-message.scss";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { HAS_VISITED_KEY } from "@/constants/local-storage-keys";
 
 export default function FirstTimeMessage() {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeMessage() {
-    localStorage.setItem("visited", "true");
     setIsOpen(false);
   }
 
   useEffect(() => {
-    const visited = localStorage.getItem("visited");
+    const visited = localStorage.getItem(HAS_VISITED_KEY);
 
     if (!visited) {
-      localStorage.setItem("visited", "true");
+      localStorage.setItem(HAS_VISITED_KEY, "true");
       setIsOpen(true);
     }
   }, []);

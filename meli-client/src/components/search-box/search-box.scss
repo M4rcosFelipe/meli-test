@@ -1,4 +1,4 @@
-@import "@/styles/variables.scss";
+@use "@/styles/_variables" as *;
 
 .search-box {
   background-color: $white;

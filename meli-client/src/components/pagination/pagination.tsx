@@ -51,7 +51,7 @@ export default function Pagination({
       : pages;
 
   return (
-    <nav className="pagination">
+    <nav className="pagination" aria-label="Paginación">
       <ul className="pagination__list">
         {currentPage > 1 && (
           <li className="pagination__button pagination__button--previous">
@@ -70,6 +70,7 @@ export default function Pagination({
               onClick={() => {
                 goToPage(pageNumber);
               }}
+              aria-label={`Ir a la página ${pageNumber}`}
             >
               {pageNumber}
             </button>

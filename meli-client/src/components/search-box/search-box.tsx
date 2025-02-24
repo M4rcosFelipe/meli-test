@@ -18,8 +18,8 @@ export default function SearchBox() {
         defaultValue={searchParams.get("search") ?? ""}
       />
 
-      <button className="search-box__button" aria-label="buscar">
-        <img className="" src="/img/ic_Search@2x.png" alt="icone de lupa" />
+      <button className="search-box__button">
+        <img className="" src="/img/ic_Search@2x.png" alt="Buscar" />
       </button>
     </form>
   );

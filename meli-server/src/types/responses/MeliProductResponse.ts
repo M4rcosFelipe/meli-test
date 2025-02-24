@@ -7,6 +7,7 @@ export interface MeliProductResponse {
   official_store_id: number;
   price: number;
   base_price: number;
+  sold_quantity?: number;
   original_price: number;
   currency_id: string;
   initial_quantity: number;
@@ -116,8 +117,8 @@ export interface Country {
 
 export interface SearchLocation {
   neighborhood: Neighborhood;
-  city: City2;
-  state: State2;
+  city: SearchLocationCity;
+  state: SearchLocationState;
 }
 
 export interface Neighborhood {
@@ -125,12 +126,12 @@ export interface Neighborhood {
   name: string;
 }
 
-export interface City2 {
+export interface SearchLocationCity {
   id: string;
   name: string;
 }
 
-export interface State2 {
+export interface SearchLocationState {
   id: string;
   name: string;
 }
@@ -142,17 +143,17 @@ export interface Attribute {
   name: string;
   value_id?: string;
   value_name: string;
-  values: Value2[];
+  values: AttributeValue[];
   value_type: string;
 }
 
-export interface Value2 {
+export interface AttributeValue {
   id?: string;
   name: string;
-  struct?: Struct2;
+  struct?: AttributeStruct;
 }
 
-export interface Struct2 {
+export interface AttributeStruct {
   number: number;
   unit: string;
 }

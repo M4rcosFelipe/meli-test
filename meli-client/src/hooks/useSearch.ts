@@ -15,8 +15,14 @@ function deDuplicateServerItems(serverItems: SearchResult[]) {
 }
 
 export function useSearch() {
-  const { currentPage, setCurrentPage, setServerItems, serverItems } =
-    useSearchStore((state) => state);
+  const {
+    currentPage,
+    setCurrentPage,
+    setServerItems,
+    serverItems,
+    lastPage,
+    setLastPage,
+  } = useSearchStore((state) => state);
 
   const searchParams = useSearchParams();
 
@@ -30,8 +36,12 @@ export function useSearch() {
   async function updateServerItems(page = 1) {
     const offset = page == 1 ? 0 : page * 10;
     const searchResponse = await SearchService.search(searchQuery, offset);
-    const currentServerItems = serverItems;
 
+    if (lastPage == null && searchResponse.items.length == 0) {
+      setLastPage(page);
+    }
+
+    const currentServerItems = serverItems;
     const uniqueItems = deDuplicateServerItems([
       ...currentServerItems,
       ...searchResponse.items,
@@ -40,15 +50,7 @@ export function useSearch() {
   }
 
   function goToPage(pageNumber: number) {
-    console.log({
-      totalPages,
-      totalPagesOfItems,
-      pageNumber,
-      currentPage,
-      serverItems,
-    });
     if (pageNumber >= totalPagesOfItems) {
-      console.log("update", { pageNumber, totalPagesOfItems });
       updateServerItems(pageNumber);
     }
     setCurrentPage(pageNumber);
@@ -82,5 +84,6 @@ export function useSearch() {
     goToPage,
     goToPreviousPage,
     goToNextPage,
+    lastPage,
   };
 }

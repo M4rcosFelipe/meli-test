@@ -1,0 +1,24 @@
+@use "@/styles/_variables" as *;
+
+.not-found {
+  max-width: $main-container-width;
+  margin: 0 auto;
+  background-color: $white;
+  padding: $spacing-32;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-16;
+  }
+
+  &__link {
+    border: 1px solid black;
+    padding: $spacing-6;
+    border-radius: 4px;
+  }
+}

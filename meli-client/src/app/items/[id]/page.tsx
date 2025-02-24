@@ -1,16 +1,13 @@
 import { ProductService } from "@/services/ProductService";
 import "./product-page.scss";
-import MediaGallery from "@/components/product-page/media-gallery/media-gallery";
-import Breadcrumb from "@/components/product-page/breadcrumb/breadcrumb";
 import { headers } from "next/headers";
-import ProductInfo from "@/components/product-page/product-info/product-info";
-import Description from "@/components/product-page/description/description";
-import Divider from "@/components/divider/divider";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { getImageUrlByMediaId } from "@/utils/images";
+import ProductPage from "@/components/pages/product-page";
 
-async function getProductPageData(id: string) {
-  const productPage = await ProductService.getProductPage(id);
+async function getProductPageData(productId: string) {
+  const productPage = await ProductService.getProductPage(productId);
 
   if (!productPage) {
     notFound();
@@ -34,7 +31,7 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: productPage.item.pictures[0], // Must be an absolute URL
+          url: getImageUrlByMediaId(productPage.item.pictures[0], "large"),
           width: 800,
           height: 600,
         },
@@ -43,37 +40,16 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({
+export default async function Page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  const previousUrl = (await headers()).get("referer");
+  const previousUrl = (await headers()).get("referer") ?? "/";
 
   const product = await getProductPageData(id);
 
-  return (
-    <div className="main-container pdp-container">
-      <Breadcrumb
-        previousUrl={previousUrl}
-        items={product.item.category_path_from_root}
-      />
-      <div className="pdp-item-container">
-        <div className="pdp-item-container__row">
-          <h1 className="product-info__title product-info__title--mobile">
-            {product.item.title}
-          </h1>
-          <MediaGallery
-            medias={product.item.pictures}
-            productTitle={product.item.title}
-          />
-          <ProductInfo item={product.item} />
-        </div>
-        <Divider mt="28px" mb="28px" />
-        <Description descriptionText={product.item.description} />
-      </div>
-    </div>
-  );
+  return <ProductPage product={product.item} previousUrl={previousUrl} />;
 }

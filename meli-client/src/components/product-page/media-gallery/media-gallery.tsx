@@ -1,8 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
 import "./media-gallery.scss";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { getImageUrlByMediaId } from "@/utils/images";
+import Image from "next/image";
+
+import dynamic from "next/dynamic";
+
+const MediaGalleryModal = dynamic(
+  () => import("./media-gallery-modal/media-gallery-modal"),
+  { ssr: false }
+);
 
 interface Props {
   medias: string[];
@@ -15,47 +23,32 @@ function getAltText(index: number, max: number, productTitle: string) {
 
 export default function MediaGallery({ medias, productTitle }: Props) {
   const [isMobile, setIsMobile] = useState<boolean | null>(true);
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const matchesMediaQuery = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     setIsMobile(matchesMediaQuery);
   }, [matchesMediaQuery]);
 
-  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const currentMediaUrl = medias[currentMediaIndex];
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const maxMediaAmount = isMobile ? 3 : 7;
   const biggerThanMax = medias.length > maxMediaAmount;
-  const isOnLastMedia = currentMediaIndex == medias.length - 1;
-  const isOnFirstMedia = currentMediaIndex == 0;
+
   const excedingAmount = medias.length - maxMediaAmount;
 
   function changeCurrentImage(mediaIndex: number) {
     setCurrentMediaIndex(mediaIndex);
   }
 
-  const displayMedias = biggerThanMax
+  const displayMediaThumbs = biggerThanMax
     ? medias.slice(0, maxMediaAmount)
     : medias;
-
-  function nextImage() {
-    const nextMediaIndex = currentMediaIndex + 1;
-    if (!isOnLastMedia) {
-      setCurrentMediaIndex(nextMediaIndex);
-    }
-  }
-
-  function previousImage() {
-    const nextMediaIndex = currentMediaIndex - 1;
-    if (!isOnFirstMedia) {
-      setCurrentMediaIndex(nextMediaIndex);
-    }
-  }
 
   return (
     <div className="media-gallery">
       <ul className="media-gallery__list">
-        {displayMedias.map((mediaUrl, index) => (
+        {displayMediaThumbs.map((mediaUrl, index) => (
           <li className="media-gallery__item" key={mediaUrl}>
             <button
               className={`media-gallery__thumb ${
@@ -67,7 +60,7 @@ export default function MediaGallery({ medias, productTitle }: Props) {
               onClick={() => changeCurrentImage(index)}
             >
               <img
-                src={mediaUrl}
+                src={getImageUrlByMediaId(mediaUrl, "small")}
                 alt={getAltText(index, medias.length, productTitle)}
               />
             </button>
@@ -86,43 +79,29 @@ export default function MediaGallery({ medias, productTitle }: Props) {
         )}
       </ul>
       <div className="media-gallery__image">
-        <img src={currentMediaUrl} alt={productTitle} />
+        {medias.map((mediaUrl, index) => (
+          <Image
+            key={mediaUrl}
+            src={getImageUrlByMediaId(mediaUrl, "large")}
+            alt={productTitle}
+            width={550}
+            height={600}
+            unoptimized
+            priority={index == 0}
+            fetchPriority={index == 0 ? "high" : "auto"}
+            hidden={index != currentMediaIndex}
+          />
+        ))}
       </div>
       {isModalOpen && (
-        <dialog
-          className="media-gallery__modal"
-          //   role="dialog"
-          aria-hidden={!isModalOpen}
-        >
-          <div className="media-gallery__modal-content">
-            <button
-              className="media-gallery__modal-close-button"
-              onClick={() => setIsModalOpen(false)}
-              aria-label="Close"
-            >
-              <X size={20} />
-            </button>
-            {!isOnFirstMedia && (
-              <button
-                className="media-gallery__modal-button"
-                onClick={previousImage}
-              >
-                <ChevronLeft size={16} />
-              </button>
-            )}
-            <div className="media-gallery__modal-image">
-              <img alt={productTitle} src={currentMediaUrl} />
-            </div>
-            {!isOnLastMedia && (
-              <button
-                className="media-gallery__modal-button"
-                onClick={nextImage}
-              >
-                <ChevronRight size={16} />
-              </button>
-            )}
-          </div>
-        </dialog>
+        <MediaGalleryModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          currentMediaIndex={currentMediaIndex}
+          medias={medias}
+          setCurrentMediaIndex={setCurrentMediaIndex}
+          currentMediaUrl={currentMediaUrl}
+        />
       )}
     </div>
   );

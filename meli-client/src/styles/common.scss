@@ -1,4 +1,4 @@
-@import "@/styles/variables.scss";
+@use "@/styles/_variables" as *;
 
 .main-container {
   max-width: $main-container-width;

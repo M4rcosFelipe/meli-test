@@ -6,8 +6,6 @@ import { MeliSellerResponse } from "../types/responses/MeliSellerResponse";
 
 export class MeliService {
   static async getProductByIdAsync(productId: string) {
-    // throw new Error("teste");
-
     const response = await fetch(
       `${process.env.MELI_API_BASE_URL}/items/${productId}`
     );

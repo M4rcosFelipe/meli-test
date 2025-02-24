@@ -1,4 +1,4 @@
-@import "@/styles/variables";
+@use "@/styles/_variables" as *;
 
 .product-info {
   margin-left: $spacing-48;
@@ -73,7 +73,7 @@
   }
 
   &__price {
-    margin: $spacing-28;
+    margin: $spacing-28 0;
   }
 
   &__original-price {

@@ -24,7 +24,7 @@ export function mapProductResponseDto(
           meliProductResponse.attributes
         ) ?? meliProductResponse.condition, // novo, usado, recondicionado
       free_shipping: meliProductResponse.shipping.free_shipping,
-      sold_quantity: null,
+      sold_quantity: meliProductResponse?.sold_quantity ?? null,
       seller: meliSellerResponse.seller.nickname,
       installments: buildInstallmentsText(meliProductResponse),
       description: meliDescription.plain_text,
@@ -49,14 +49,14 @@ function mapPrice(meliProductResponse: MeliProductResponse) {
 
 function mapPictures(meliProductResponse: MeliProductResponse) {
   const pictures: string[] = meliProductResponse.pictures.map(
-    (picture) => picture.url
+    (picture) => picture.id
   );
 
   return pictures;
 }
 
 function buildInstallmentsText(meliProductResponse: MeliProductResponse) {
-  //a api não retorna essa informação,
+  //a api não retorna essa informação nos endoints de produto
   return "";
 }
 

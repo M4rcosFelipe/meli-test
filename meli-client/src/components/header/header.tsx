@@ -10,7 +10,10 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__content main-container">
-        <Link href="/">
+        <Link
+          href="/"
+          aria-label="Mercado Libre Argentina - Donde comprar y vender de todo"
+        >
           <Logo />
         </Link>
         <Suspense>

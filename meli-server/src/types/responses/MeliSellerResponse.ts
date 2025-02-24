@@ -42,7 +42,7 @@ export interface Result {
   currency_id: string;
   order_backend: number;
   price: number;
-  original_price: any;
+  original_price: number | null;
   sale_price: SalePrice;
   available_quantity: number;
   official_store_id: any;
@@ -50,7 +50,7 @@ export interface Result {
   accepts_mercadopago: boolean;
   shipping: Shipping;
   stop_time: string;
-  seller: Seller2;
+  seller: Seller;
   address: Address;
   attributes: Attribute[];
   installments: Installments;
@@ -73,7 +73,7 @@ export interface SalePrice {
   payment_method_type: string;
   regular_amount: any;
   type: string;
-  metadata: Metadata;
+  metadata: Metadata | null;
 }
 
 export interface Conditions {
@@ -94,11 +94,6 @@ export interface Shipping {
   benefits: any;
   promise: any;
   shipping_score: number;
-}
-
-export interface Seller2 {
-  id: number;
-  nickname: string;
 }
 
 export interface Address {
@@ -143,10 +138,10 @@ export interface Installments {
   amount: number;
   rate: number;
   currency_id: string;
-  metadata: Metadata2;
+  metadata: Metadata;
 }
 
-export interface Metadata2 {
+export interface Metadata {
   meliplus_installments: boolean;
   additional_bank_interest: boolean;
 }
@@ -165,10 +160,10 @@ export interface AvailableFilter {
   id: string;
   name: string;
   type: string;
-  values: Value2[];
+  values: AvailableFilterValue[];
 }
 
-export interface Value2 {
+export interface AvailableFilterValue {
   id: string;
   name: string;
   results: number;

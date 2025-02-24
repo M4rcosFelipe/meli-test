@@ -1,5 +1,6 @@
 import SearchPage from "@/components/pages/search-page";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export async function generateMetadata(props: {
   searchParams?: Promise<{
@@ -20,5 +21,9 @@ export async function generateMetadata(props: {
 }
 
 export default async function Page() {
-  return <SearchPage />;
+  return (
+    <Suspense>
+      <SearchPage />
+    </Suspense>
+  );
 }

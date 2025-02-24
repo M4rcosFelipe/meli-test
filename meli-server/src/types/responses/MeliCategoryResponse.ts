@@ -2,7 +2,7 @@ export interface MeliCategoryResponse {
   id: string;
   name: string;
   picture: string;
-  permalink: any;
+  permalink: string | null;
   total_items_in_this_category: number;
   path_from_root: PathFromRoot[];
   children_categories: any[];
@@ -65,12 +65,5 @@ export interface Settings {
 
 export interface ChannelsSetting {
   channel: string;
-  settings: Settings2;
-}
-
-export interface Settings2 {
-  minimum_price?: number;
-  status?: string;
-  buying_modes?: string[];
-  immediate_payment?: string;
+  settings: any;
 }

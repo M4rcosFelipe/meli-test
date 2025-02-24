@@ -5,6 +5,7 @@ import { useSearch } from "@/hooks/useSearch";
 
 import { useEffect } from "react";
 import Pagination from "../pagination/pagination";
+import SearchEmptyResults from "../search-empty-results/search-empty-results";
 
 export default function SearchPage() {
   const {
@@ -15,16 +16,22 @@ export default function SearchPage() {
     goToNextPage,
     goToPreviousPage,
     totalPages,
+    lastPage,
   } = useSearch();
 
   useEffect(() => {
     updateServerItems();
   }, []);
 
+  const hasLastPage = lastPage != null;
+  const hasNoItemsLeftOnPage = items.length == 0;
+
+  if (hasLastPage && currentPage >= lastPage && hasNoItemsLeftOnPage) {
+    return <SearchEmptyResults />;
+  }
   return (
     <>
       <SearchResults results={items} />
-
       {items.length > 0 && (
         <SearchFooter>
           <Pagination
