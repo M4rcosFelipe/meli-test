@@ -37,7 +37,7 @@ O servidor inicializará na url http://localhost:3001
 
 ### Rodando o front end
 
-Dentro de `meli-test/meli-client`:
+Em outra janela do terminal e dentro de `meli-test/meli-client`:
 
 ```bash
 cp .env.example .env
