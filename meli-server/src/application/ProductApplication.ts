@@ -7,13 +7,12 @@ export class ProductApplication {
     productId: string
   ): Promise<ProductResponseDto> {
     const product = await MeliService.getProductByIdAsync(productId);
-    const description = await MeliService.getProductDescriptionByProductIdAsync(
-      productId
-    );
-    const category = await MeliService.getCategoryByIdAsync(
-      product.category_id
-    );
-    const seller = await MeliService.getSellerByIdAsync(product.seller_id);
+
+    const [description, category, seller] = await Promise.all([
+      MeliService.getProductDescriptionByProductIdAsync(productId),
+      MeliService.getCategoryByIdAsync(product.category_id),
+      MeliService.getSellerByIdAsync(product.seller_id),
+    ]);
 
     return mapProductResponseDto(product, description, category, seller);
   }
