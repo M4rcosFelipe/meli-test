@@ -3,7 +3,8 @@ import { Product } from "@/types/product/ProductResponse";
 export class ProductService {
   static async getProductPage(productId: string): Promise<Product | null> {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/items/${productId}`
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/items/${productId}`,
+      { next: { revalidate: 3600 } }
     );
 
     if (response.status != 200) {

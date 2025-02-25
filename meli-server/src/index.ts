@@ -2,13 +2,12 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { ProductApplication } from "./application/ProductApplication";
 import { SearchApplication } from "./application/SearchApplication";
-import { validateSearchRequest } from "./middlewares/validateSearchRequest";
 import pino from "pino-http";
 import cors from "cors";
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.use(
   cors({
     origin: "*",
@@ -22,6 +21,7 @@ app.get("/api/items", async (req: Request, res: Response) => {
 
     if (!queryParam) {
       res.status(400).send({ error: `missing query param "query"` });
+      return;
     }
 
     const offset = req.query.offset ?? 0;
