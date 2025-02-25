@@ -4,6 +4,10 @@
   display: flex;
 
   @media (max-width: 1200px) {
+    margin-left: $spacing-8;
+  }
+
+  @media (max-width: 960px) {
     display: none;
   }
 }

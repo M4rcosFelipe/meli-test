@@ -13,7 +13,6 @@ O projeto está dividido em 2 aplicações:
 
 ```bash
 git clone https://github.com/M4rcosFelipe/meli-test
-
 ```
 
 2. Entre na pasta `meli-test`
@@ -30,7 +29,6 @@ Dentro de `meli-test/meli-server`:
 cp .env.example .env
 npm install
 npm run dev
-
 ```
 
 O servidor inicializará na url http://localhost:3001
@@ -43,7 +41,6 @@ Em outra janela do terminal e dentro de `meli-test/meli-client`:
 cp .env.example .env
 npm install
 npm run dev
-
 ```
 
 O servidor inicializará na url http://localhost:3000/
@@ -72,8 +69,28 @@ O projeto possui as funcionalidades mínimas e extras descritas no teste.
 - Uma mensagem de boas vindas ao usuário é exibida na primeira vez que ele acessa o fluxo de
   busca.A mensagem aparece apenas na primeira visita,essa informação é armazenada no `LocalStorage` do navegador.
 
+## Como rodar os testes
+
+Testes e2e:
+
+```bash
+npm run cy:e2e
+```
+
+Testes de componentes:
+
+```bash
+npm run cy:comp
+```
+
+Abrir o client do Cypress:
+
+```bash
+npm run cy:open
+```
+
 ## Stack utilizada
 
-**Front-end:** Nextjs, React,Zustand, Sass
+**Front-end:** Nextjs, React, Zustand, Sass
 
 **Back-end:** Node, Express

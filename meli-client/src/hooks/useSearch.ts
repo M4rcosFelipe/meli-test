@@ -3,6 +3,7 @@ import { SearchService } from "@/services/SearchService";
 import { useSearchStore } from "@/store/search-store";
 import { SearchResult } from "@/types/search/SearchResult";
 import { useSearchParams } from "next/navigation";
+import { useTransition } from "react";
 
 function deDuplicateServerItems(serverItems: SearchResult[]) {
   const uniqueServerItemsiDs = [
@@ -25,7 +26,7 @@ export function useSearch() {
   } = useSearchStore((state) => state);
 
   const searchParams = useSearchParams();
-
+  const [isPending, startTransition] = useTransition();
   const searchQuery = searchParams.get("search") ?? "";
 
   const totalPagesOfItems = Math.ceil(serverItems.length / 10);
@@ -35,18 +36,20 @@ export function useSearch() {
 
   async function updateServerItems(page = 1) {
     const offset = page == 1 ? 0 : page * 10;
-    const searchResponse = await SearchService.search(searchQuery, offset);
+    startTransition(async () => {
+      const searchResponse = await SearchService.search(searchQuery, offset);
 
-    if (lastPage == null && searchResponse.items.length == 0) {
-      setLastPage(page);
-    }
+      if (lastPage == null && searchResponse.items.length == 0) {
+        setLastPage(page);
+      }
 
-    const currentServerItems = serverItems;
-    const uniqueItems = deDuplicateServerItems([
-      ...currentServerItems,
-      ...searchResponse.items,
-    ]);
-    setServerItems(uniqueItems);
+      const currentServerItems = serverItems;
+      const uniqueItems = deDuplicateServerItems([
+        ...currentServerItems,
+        ...searchResponse.items,
+      ]);
+      setServerItems(uniqueItems);
+    });
   }
 
   function goToPage(pageNumber: number) {
@@ -85,5 +88,6 @@ export function useSearch() {
     goToPreviousPage,
     goToNextPage,
     lastPage,
+    isPending,
   };
 }

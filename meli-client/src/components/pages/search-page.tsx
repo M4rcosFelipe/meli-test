@@ -6,6 +6,7 @@ import { useSearch } from "@/hooks/useSearch";
 import { useEffect } from "react";
 import Pagination from "../pagination/pagination";
 import SearchEmptyResults from "../search-empty-results/search-empty-results";
+import LoadingScreen from "../loading-screen/loading-screen";
 
 export default function SearchPage() {
   const {
@@ -17,6 +18,7 @@ export default function SearchPage() {
     goToPreviousPage,
     totalPages,
     lastPage,
+    isPending,
   } = useSearch();
 
   useEffect(() => {
@@ -26,6 +28,9 @@ export default function SearchPage() {
   const hasLastPage = lastPage != null;
   const hasNoItemsLeftOnPage = items.length == 0;
 
+  if (isPending && hasNoItemsLeftOnPage) {
+    return <LoadingScreen />;
+  }
   if (hasLastPage && currentPage >= lastPage && hasNoItemsLeftOnPage) {
     return <SearchEmptyResults />;
   }

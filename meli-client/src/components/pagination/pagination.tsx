@@ -55,7 +55,11 @@ export default function Pagination({
       <ul className="pagination__list">
         {currentPage > 1 && (
           <li className="pagination__button pagination__button--previous">
-            <button className="pagination__link" onClick={goToPreviousPage}>
+            <button
+              className="pagination__link"
+              onClick={goToPreviousPage}
+              data-testid="go-to-previous-page-button"
+            >
               {"<"} Anterior
             </button>
           </li>
@@ -71,6 +75,8 @@ export default function Pagination({
                 goToPage(pageNumber);
               }}
               aria-label={`Ir a la página ${pageNumber}`}
+              data-testid="page-number-button"
+              data-page-number={pageNumber}
             >
               {pageNumber}
             </button>
@@ -78,7 +84,11 @@ export default function Pagination({
         ))}
         <li className="pagination__button pagination__button--previous">
           {currentPage < totalPages && (
-            <button className="pagination__link" onClick={goToNextPage}>
+            <button
+              className="pagination__link"
+              onClick={goToNextPage}
+              data-testid="go-to-next-page-button"
+            >
               Siguiente {">"}
             </button>
           )}

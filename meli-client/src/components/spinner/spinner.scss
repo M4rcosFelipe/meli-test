@@ -1,0 +1,15 @@
+@use "@/styles/_variables" as *;
+
+.spinner {
+  animation: rotate infinite linear 1s;
+  color: $ml-blue;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
