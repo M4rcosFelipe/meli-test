@@ -69,7 +69,9 @@ O projeto possui as funcionalidades mínimas e extras descritas no teste.
 - Uma mensagem de boas vindas ao usuário é exibida na primeira vez que ele acessa o fluxo de
   busca.A mensagem aparece apenas na primeira visita,essa informação é armazenada no `LocalStorage` do navegador.
 
-## Como rodar os testes
+## Como rodar os testes do frontend
+
+Dentro de `meli-test/meli-client`
 
 Testes e2e:
 
